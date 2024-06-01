@@ -5,7 +5,6 @@ from .models import Menu
 class MenuList(generic.ListView):
     queryset = Menu.objects.order_by('-date_created')
     template_name = 'index.html'
-    pass
 
 
 class MenuDetail(generic.DetailView):

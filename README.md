@@ -1,1 +1,1 @@
-# Restaurant Kitchen Web App with Django
+# Restaurant Kitchen Web App with Django & QR Code
