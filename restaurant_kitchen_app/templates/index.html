@@ -12,7 +12,7 @@
                         <hr class="mb-4">
                     {% for item in menu_list %}
                         {% if item.meal_type == meal.0 %}
-                            {% if item.status == 0 %}
+                            {% if item.status == 0 and item.meal %}
                                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 p-0">
                                     <a href="{% url 'menu_details' item.pk %}" class="text-decoration-none"><h4 style="color: red;"><del>{{ item.meal }}</del></h4></a>
                                     <span class="badge bg-primary rounded-pill">${{ item.price }}</span>
