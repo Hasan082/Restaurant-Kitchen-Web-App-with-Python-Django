@@ -23,7 +23,7 @@ class Menu(models.Model):
     price = models.DecimalField(max_digits=20, decimal_places=2)
     meal_type = models.CharField(choices=meal_types, max_length=255)
     author = models.ForeignKey(User, on_delete=models.PROTECT)
-    status = models.BooleanField(choices=STATUS,default=0)
+    status = models.BooleanField(choices=STATUS, default=0)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 
