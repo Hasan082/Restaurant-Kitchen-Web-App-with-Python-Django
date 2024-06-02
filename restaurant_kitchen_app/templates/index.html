@@ -2,29 +2,36 @@
 {% load static %}
 {% block title %}Home{% endblock %}
 {% block content %}
-<body>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h1>Restaurant Kitchen menu</h1>
+            <div class="col-md-12 mt-5">
+                <h1 class="text-center mb-3">Restaurant Kitchen Menu</h1>
+                <ul class="list-group list-group-flush">
                 {% for meal in meals %}
-                    <h2>{{ meal.1 }}</h3>
+                    <h3 class="text-center mt-2">{{ meal.1 }}</h2>
+                        <hr class="mb-4">
                     {% for item in menu_list %}
                         {% if item.meal_type == meal.0 %}
                             {% if item.status == 0 %}
-                                <a href="{% url 'menu_details' item.pk %}"><h3 style="color: red;"><del>{{ item.meal }}</del></h3></a>
-                                <p>{{ item.description }}</p>
-                                <p>${{ item.price }}</p>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 p-0">
+                                    <a href="{% url 'menu_details' item.pk %}" class="text-decoration-none"><h4 style="color: red;"><del>{{ item.meal }}</del></h4></a>
+                                    <span class="badge bg-primary rounded-pill">${{ item.price }}</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 p-0 mb-2"><p>{{ item.description }}</p></li>
+                                                               
                             {% else %}
-                                <a href="{% url 'menu_details' item.pk %}"><h3>{{ item.meal }}</h3></a>
-                                <p>{{ item.description }}</p>
-                                <p>${{ item.price }}</p>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 p-0">
+                                    <a href="{% url 'menu_details' item.pk %}" class="text-decoration-none"><h3>{{ item.meal }}</h3></a>
+                                    <span class="badge bg-primary rounded-pill">${{ item.price }}</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 p-0 mb-2"><p>{{ item.description }}</p></li>
                             {% endif %}
                         {% endif %}
                     {% endfor %}
                 {% endfor %}
+                </ul>
             </div>
         </div>
     </div>   
-</body>
 {% endblock %}
+
