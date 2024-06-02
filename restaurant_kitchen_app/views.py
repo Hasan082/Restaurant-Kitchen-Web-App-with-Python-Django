@@ -1,5 +1,3 @@
-from typing import Any
-from django.shortcuts import render
 from django.views import generic
 from .models import Menu, meal_types
 
@@ -11,7 +9,6 @@ class MenuList(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['meals'] = meal_types
-        context['menus'] = Menu.objects.all()
         return context
 
 
